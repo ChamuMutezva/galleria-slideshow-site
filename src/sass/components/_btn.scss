@@ -1,0 +1,9 @@
+@use "../utils";
+
+.btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+    @include utils.hoverFocus;
+}

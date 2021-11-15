@@ -1,0 +1,80 @@
+@use "./variables";
+
+/* ----------------------------------- */
+/*          CUSTOM CLASSES             */
+/* ------------------------------------*/
+
+/* ----------------------------------- */
+/*    BACKGROUND COLORS                */
+/* ------------------------------------*/
+
+.bg-dark {
+    background-color: variables.$clr-dark;
+}
+
+.bg-med-grey {
+     background-color: variables.$clr-med-grey;
+}
+
+.bg-lt-grey {
+    background-color: variables.$clr-lt-grey;
+}
+
+.bg-off-white {
+    background-color: variables.$clr-off-white;
+}
+
+.bg-white {
+    background-color: variables.$clr-white;
+}
+
+/* ----------------------------------- */
+/*    TEXT COLORS                      */
+/* ------------------------------------*/
+.text-dark {
+    color: variables.$clr-dark;
+}
+
+.text-med-grey {
+     color: variables.$clr-med-grey;
+}
+
+.text-lt-grey {
+    color: variables.$clr-lt-grey;
+}
+
+.text-off-white {
+    color: variables.$clr-off-white;
+}
+
+.text-white {
+    color: variables.$clr-white;
+}
+
+/* ----------------------------------- */
+/*    TOPOGRAPHY                       */
+/* ------------------------------------*/
+.fs-100 {
+    font-size: variables.$fs-100;
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+.uppercase {
+    text-transform: uppercase;
+}
+
+.container {
+    padding: variables.$spacer-1;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid { 
+    display: grid;
+}

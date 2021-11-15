@@ -1,3 +1,12 @@
+@use "./base";
+@use "./utils";
+@use "./components";
+/*
+@use "./layouts";
+@use "./pages";
+*/
+
 body {
-    background-color: aqua;
+    background-color: base.$clr-off-white;
+    font-family: base.$ft-libre;
 }

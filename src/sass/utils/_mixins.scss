@@ -1,0 +1,16 @@
+//media query control
+@mixin mQ($arg) {
+    @media screen and (min-width: $arg) {
+        @content;
+    }
+}
+
+@mixin hoverFocus() {
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        outline: dashed currentColor;
+        outline-offset: 0.25em;
+    }
+}
