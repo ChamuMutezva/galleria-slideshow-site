@@ -1,12 +1,6 @@
-import { useContext } from "react"
 import logo from "../assets/shared/logo.svg"
-import { DataContext } from "../context/DataContext"
 
-
-const Header = () => {
-
-  const data = useContext(DataContext)
-  console.log(data)
+const Header = () => {  
 
   return (
     <header className="flex">

@@ -13,7 +13,7 @@
 }
 
 .bg-med-grey {
-     background-color: variables.$clr-med-grey;
+    background-color: variables.$clr-med-grey;
 }
 
 .bg-lt-grey {
@@ -36,7 +36,7 @@
 }
 
 .text-med-grey {
-     color: variables.$clr-med-grey;
+    color: variables.$clr-med-grey;
 }
 
 .text-lt-grey {
@@ -58,11 +58,65 @@
     font-size: variables.$fs-100;
 }
 
+.fs-200 {
+    font-size: variables.$fs-200;
+}
+
+.fs-300 {
+    font-size: variables.$fs-300;
+}
+
+.fs-400 {
+    font-size: variables.$fs-400;
+}
+
+.fs-500 {
+    font-size: variables.$fs-500;
+}
+
+.fs-600 {
+    font-size: variables.$fs-600;
+}
+
+.fs-700 {
+    font-size: variables.$fs-700;
+}
+
+.fs-800 {
+    font-size: variables.$fs-800;
+}
+
+.fs-900 {
+    font-size: variables.$fs-900;
+}
+
+.fs-1000 {
+    font-size: variables.$fs-1000;
+}
+
+.fs-1100 {
+    font-size: variables.$fs-1100;
+}
+
+.fs-1200 {
+    font-size: variables.$fs-1200;
+}
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
 .uppercase {
     text-transform: uppercase;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    z-index: 1;
+    bottom: 1.5rem;
+    left: 1.5rem;
 }
 
 .container {
@@ -71,10 +125,15 @@
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.grid { 
+.grid {
     display: grid;
+}
+
+.anchor-color {
+    color: white;
 }
