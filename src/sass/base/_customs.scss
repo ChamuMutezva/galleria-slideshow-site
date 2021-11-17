@@ -101,6 +101,7 @@
 .fs-1200 {
     font-size: variables.$fs-1200;
 }
+
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
@@ -130,10 +131,41 @@
     align-items: center;
 }
 
+.flex-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .grid {
     display: grid;
 }
 
+.grid-masonry {
+    display: grid;
+    //grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: .75rem;
+    grid-template-rows: masonry;
+  //  grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+}
+
 .anchor-color {
     color: white;
+}
+
+/* screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    /* added line */
+    border: 0;
 }

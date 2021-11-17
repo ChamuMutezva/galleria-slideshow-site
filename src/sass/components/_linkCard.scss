@@ -1,0 +1,11 @@
+@use "../base";
+@use "../utils";
+
+.link-card {
+    @include utils.hoverFocus;
+
+    &:hover,
+    &:focus {      
+        outline: dashed base.$clr-dark;       
+    }
+}
