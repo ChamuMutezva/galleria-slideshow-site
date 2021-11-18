@@ -1,4 +1,5 @@
 @use "./variables";
+@use "../utils";
 
 /* ----------------------------------- */
 /*          CUSTOM CLASSES             */
@@ -56,6 +57,9 @@
 /* ------------------------------------*/
 .fs-100 {
     font-size: variables.$fs-100;
+    @include utils.mQ(38.75rem) {
+        font-size: variables.$fs-300;
+    }
 }
 
 .fs-200 {
@@ -102,6 +106,14 @@
     font-size: variables.$fs-1200;
 }
 
+.fw-normal {
+    font-weight: variables.$fw-normal;
+}
+
+.fw-bold {
+    font-weight: variables.$fw-bold;
+}
+
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
@@ -122,6 +134,10 @@
 
 .container {
     padding: variables.$spacer-1;
+    @include utils.mQ(38.75rem) {
+        padding-block: variables.$spacer-2;
+        padding-inline: variables.$spacer-3;
+    }
 }
 
 .flex {
