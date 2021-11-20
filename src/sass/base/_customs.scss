@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "./variables";
 @use "../utils";
 
@@ -57,6 +58,7 @@
 /* ------------------------------------*/
 .fs-100 {
     font-size: variables.$fs-100;
+
     @include utils.mQ(38.75rem) {
         font-size: variables.$fs-300;
     }
@@ -114,9 +116,14 @@
     font-weight: variables.$fw-bold;
 }
 
+
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
+.darken-color {
+    color: darken(variables.$clr-white, 20%);
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -134,6 +141,7 @@
 
 .container {
     padding: variables.$spacer-1;
+
     @include utils.mQ(38.75rem) {
         padding-block: variables.$spacer-2;
         padding-inline: variables.$spacer-3;
@@ -164,7 +172,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: .75rem;
     grid-template-rows: masonry;
-  //  grid-auto-rows: 250px;
+    //  grid-auto-rows: 250px;
     grid-auto-flow: dense;
 }
 

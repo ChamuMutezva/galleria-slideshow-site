@@ -1,14 +1,23 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./sass/App.scss"
 import Header from "./layouts/Header"
-import Main from "./layouts/Main";
+import Main from "./pages/Main";
+import Slides from './pages/Slides';
 import { DataProvider } from "./context/DataContext"
 
 function App() {
   return (
     <div className="App container bg-white">
-      <DataProvider>
-        <Header />
-        <Main />
+      <DataProvider>       
+        
+          <BrowserRouter>
+          <Header />
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="slides" element={<Slides />} />
+            </Routes>
+          </BrowserRouter>
+        
       </DataProvider>
     </div>
   );

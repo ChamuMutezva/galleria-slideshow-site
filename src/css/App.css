@@ -96,6 +96,9 @@ select {
 /*          SPACINGS                   */
 /* ------------------------------------*/
 /* ----------------------------------- */
+/*       FONT WEIGHTS                  */
+/* ------------------------------------*/
+/* ----------------------------------- */
 /*          CUSTOM CLASSES             */
 /* ------------------------------------*/
 /* ----------------------------------- */
@@ -144,14 +147,214 @@ select {
   color: white;
 }
 
+/* ----------------------------------- */
+/*    TOPOGRAPHY                       */
+/* ------------------------------------*/
+.fs-100 {
+  font-size: 0.5625rem;
+}
+@media screen and (min-width: 38.75rem) {
+  .fs-100 {
+    font-size: 0.75rem;
+  }
+}
+
+.fs-200 {
+  font-size: 0.625rem;
+}
+
+.fs-300 {
+  font-size: 0.75rem;
+}
+
+.fs-400 {
+  font-size: 0.8125rem;
+}
+
+.fs-500 {
+  font-size: 0.875rem;
+}
+
+.fs-600 {
+  font-size: 0.9375rem;
+}
+
+.fs-700 {
+  font-size: 1rem;
+}
+
+.fs-800 {
+  font-size: 1.125rem;
+}
+
+.fs-900 {
+  font-size: 1.5rem;
+}
+
+.fs-1000 {
+  font-size: 2rem;
+}
+
+.fs-1100 {
+  font-size: 3.5rem;
+}
+
+.fs-1200 {
+  font-size: 12.5rem;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+.darken-color {
+  color: #cccccc;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.container {
+  padding: 1.5rem;
+}
+@media screen and (min-width: 38.75rem) {
+  .container {
+    padding-block: 1.8125rem;
+    padding-inline: 2.5rem;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 0.75rem;
+  grid-template-rows: masonry;
+  grid-auto-flow: dense;
+}
+
+.anchor-color {
+  color: white;
+}
+
+/* screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
+.image-holder > * {
+  width: 65%;
+}
+
+.btn {
+  background-color: transparent;
+  color: #7d7d7d;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1.93px;
+  font-family: "Libre Baskerville", serif;
+}
+.btn:hover, .btn:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: 0.25em;
+}
+@media screen and (min-width: 38.75rem) {
+  .btn {
+    letter-spacing: 2.57px;
+  }
+}
+
+.link-card:hover, .link-card:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: 0.25em;
+}
+.link-card:hover, .link-card:focus {
+  outline: dashed black;
+}
+
+.anchor-img {
+  mix-blend-mode: darken;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+.App::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.125rem;
+  background-color: #e6e6e6;
+  left: 0;
+  top: 4.9375rem;
+}
+@media screen and (min-width: 38.75rem) {
+  .App::before {
+    top: 5.5rem;
+  }
+}
+
+.main {
+  max-width: 1360px;
+  margin-block-start: 3rem;
+  margin-block-end: 1.5rem;
+  margin-inline: auto;
+}
+@media screen and (min-width: 38.75rem) {
+  .main {
+    margin-block-start: 4.25rem;
+  }
+}
+
 /*
-@use "./utils";
-@use "./components";
-@use "./layouts";
 @use "./pages";
 */
 body {

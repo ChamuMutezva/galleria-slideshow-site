@@ -1,12 +1,18 @@
+@use "sass:color";
 @use "../base";
 @use "../utils";
 
 .btn {
 	background-color: transparent;
+	color: lighten(base.$clr-med-grey, 46%);
 	border: none;
 	cursor: pointer;
 	letter-spacing: 1.93px;
 	font-family: base.$ft-libre;
 
     @include utils.hoverFocus;
+
+	@include utils.mQ(38.75rem) {
+       letter-spacing: 2.57px;
+    }
 }
