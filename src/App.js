@@ -8,18 +8,33 @@ import { DataProvider } from "./context/DataContext"
 function App() {
   return (
     <div className="App container bg-white">
-      <DataProvider>       
-        
-          <BrowserRouter>
+      <DataProvider>
+
+        <BrowserRouter>
           <Header />
-            <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="slides" element={<Slides />} />
-            </Routes>
-          </BrowserRouter>
-        
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="slides/:id" element={<Slides />} >
+              <Route path="*" element={
+                <main style={{ padding: "1rem" }}>
+                  <p>There's nothing here!</p>
+                </main>
+              }>
+              </Route>
+            </Route>
+
+            <Route path="*" element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }>
+            </Route>
+
+          </Routes>
+        </BrowserRouter>
+
       </DataProvider>
-    </div>
+    </div >
   );
 }
 

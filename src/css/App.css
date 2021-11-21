@@ -200,6 +200,10 @@ select {
 }
 
 .fs-1200 {
+  font-size: 6.5rem;
+}
+
+.fs-1300 {
   font-size: 12.5rem;
 }
 
@@ -218,6 +222,10 @@ select {
   color: #cccccc;
 }
 
+.lighten-mid-grey {
+  color: #7d7d7d;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -230,6 +238,13 @@ select {
   position: absolute;
   z-index: 1;
   bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.absolute-top {
+  position: absolute;
+  z-index: 1;
+  top: 1.5rem;
   left: 1.5rem;
 }
 
@@ -293,7 +308,6 @@ select {
 
 .btn {
   background-color: transparent;
-  color: #7d7d7d;
   border: none;
   cursor: pointer;
   letter-spacing: 1.93px;
@@ -312,14 +326,9 @@ select {
 
 .link-card:hover, .link-card:focus {
   cursor: pointer;
-  outline: dashed currentColor;
-  outline-offset: 0.25em;
+  opacity: 80%;
 }
-.link-card:hover, .link-card:focus {
-  outline: dashed black;
-}
-
-.anchor-img {
+.link-card img {
   mix-blend-mode: darken;
 }
 
@@ -354,9 +363,43 @@ select {
   }
 }
 
-/*
-@use "./pages";
-*/
+.btn-image {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  background-color: #1a1a1a;
+  opacity: 80%;
+  padding: 0.5rem 1rem;
+}
+
+.main-image .absolute {
+  width: 80%;
+  bottom: -1.4rem;
+  left: 0rem;
+  background: white;
+  padding-block: 0.5rem;
+  padding-inline-start: 1.5rem;
+}
+
+.image-heading {
+  color: #7d7d7d;
+}
+
+.author-image {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-block-start: 3.5rem;
+}
+.author-image img {
+  transform: scale(0.5);
+}
+
+.year {
+  color: #f2f2f2;
+}
+
 body {
   background-color: #f2f2f2;
   font-family: "Libre Baskerville", serif;

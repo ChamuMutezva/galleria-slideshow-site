@@ -7,7 +7,7 @@ const Header = () => {
       <Link to="/" className="image-holder">
         <img className="logo" src={logo} alt="" aria-hidden="true" />
       </Link>
-      <button className="btn uppercase fs-100 fw-bold text-med-grey">
+      <button className="btn uppercase fs-100 fw-bold  lighten-mid-grey">
         Start slideshow
       </button>
     </header>

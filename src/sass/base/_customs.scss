@@ -108,6 +108,10 @@
     font-size: variables.$fs-1200;
 }
 
+.fs-1300 {
+    font-size: variables.$fs-1300;
+}
+
 .fw-normal {
     font-weight: variables.$fw-normal;
 }
@@ -124,6 +128,10 @@
     color: darken(variables.$clr-white, 20%);
 }
 
+.lighten-mid-grey {
+    color: lighten(variables.$clr-med-grey, 46%); 
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -137,6 +145,13 @@
     z-index: 1;
     bottom: 1.5rem;
     left: 1.5rem;
+}
+
+.absolute-top {
+    position: absolute;
+    z-index: 1;
+    top: 1.5rem;
+    left: 1.5rem; 
 }
 
 .container {

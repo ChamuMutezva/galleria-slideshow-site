@@ -2,14 +2,15 @@
 @use "../utils";
 
 .link-card {
-    @include utils.hoverFocus;
 
     &:hover,
-    &:focus {      
-        outline: dashed base.$clr-dark;       
+    &:focus {
+        cursor: pointer;           
+        opacity: 80%;
     }
-}
 
-.anchor-img {
-    mix-blend-mode: darken;
+    img {
+        mix-blend-mode: darken;
+      
+    }
 }

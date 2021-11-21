@@ -1,0 +1,44 @@
+@use "sass:color";
+@use "../base";
+@use "../utils";
+
+.btn-image {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: base.$clr-white;
+    background-color: lighten(base.$clr-dark, 10%);
+    opacity: 80%;
+    padding: .5rem 1rem;
+}
+
+.main-image {
+    .absolute {
+        width: 80%;
+        bottom: -1.4rem;
+        left: 0rem;
+        background: white;
+        padding-block: .5rem;
+        padding-inline-start: 1.5rem;
+        // margin-block-end: 1.5rem;
+    }
+}
+
+.image-heading {
+    color: lighten(base.$clr-med-grey, 46%);
+}
+
+.author-image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-block-start: 3.5rem;
+
+    img {
+        transform: scale(0.5);
+    }
+}
+
+.year {
+    color: base.$clr-off-white;
+}
