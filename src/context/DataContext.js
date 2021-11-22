@@ -27,14 +27,14 @@ export const DataProvider = (props) => {
     }
 
     const getOne = (id) => {
-        return data.find(target => target.id === id)
-      // return id === "undefined" ? <main><h2>Nothing to show here</h2></main> : data.find(target => target.id === id)
+        return data.find(target => target.id === id)       
     }
 
     useEffect(() => {
-        getData()
-       
+        getData()      
     }, [])
+
+ 
 
     return <DataContext.Provider value={{ data, getOne }}>
         {props.children}

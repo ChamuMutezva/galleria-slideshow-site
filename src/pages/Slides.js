@@ -1,56 +1,99 @@
-import { useContext } from "react"
-//import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom";
+import { useContext, useState } from "react"
+import {  useParams,  Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext"
+import Next from "../assets/shared/icon-next-button.svg"
+import Back from "../assets/shared/icon-back-button.svg"
+
 const Slides = () => {
     let params = useParams();
+   // const navigate = useNavigate();
+  //  const location = useLocation()
+   
     const { getOne } = useContext(DataContext)
-    const targetObj = getOne(parseInt(params.id.substring(1), 10))
+    //const targetObj = getOne(parseInt(params.id.substring(1), 10))
+    const [targetObj, setTargetObj] = useState(getOne(parseInt(params.id.substring(1), 10)))
 
     if (targetObj === undefined) {
         return <main><h2>Nothing to show here</h2></main>
     }
+
+
     console.log(targetObj)
+
+    function handleBack() {
+        console.log(targetObj.id)
+        setTargetObj(getOne(parseInt(targetObj.id - 1)))
+       
+    }
+
+    function handleNext() {
+        console.log(targetObj.id)
+        setTargetObj(getOne(parseInt(targetObj.id + 1)))
+       
+    }
 
 
     return (
-        <div className="main">
-            <h1 className="sr-only">
-                Additional information for {targetObj.name} the works of {targetObj.artist.name}
-            </h1>
+        <>
+            <main className="main">
+                <h1 className="sr-only">
+                    Additional information for {targetObj.name} the works of {targetObj.artist.name}
+                </h1>
 
-            <div className="image-content">
-                <div className="main-image relative">
-                    <div className="view-image absolute-top">
-                        <button className="btn btn-image">
-                            <img src="../assets/shared/icon-view-image.svg" alt="" />
-                            <span>View image</span>
-                        </button>
+                <div className="image-content">
+                    <div className="main-image relative">
+                        <div className="view-image absolute-top">
+                            <button className="btn btn-image">
+                                <img src="../assets/shared/icon-view-image.svg" alt="" />
+                                <span>View image</span>
+                            </button>
+                        </div>
+                        <picture className="main-image-container">
+                            <source media="(min-width: 680px)" srcSet={targetObj.images.hero.large} />
+                            <img className="anchor-img"
+                                src={targetObj.images.hero.small}
+                                alt="" />
+                        </picture>
+                        <div className="absolute">
+                            <h2 className="fs-900 fw-bold">{targetObj.name}</h2>
+                            <h3 className="fs-600 image-heading">{targetObj.artist.name}</h3>
+                        </div>
                     </div>
-                    <picture className="main-image-container">
-                        <source media="(min-width: 680px)" srcSet={targetObj.images.hero.large} />
-                        <img className="anchor-img"
-                            src={targetObj.images.hero.small}
-                            alt="" />
-                    </picture>
-                    <div className="absolute">
-                        <h2 className="fs-900 fw-bold">{targetObj.name}</h2>
-                        <h3 className="fs-600 image-heading">{targetObj.artist.name}</h3>
+                    <div className="author-image">
+                        <img src={targetObj.artist.image} alt={targetObj.artist.image} />
                     </div>
                 </div>
-                <div className="author-image">
-                    <img src={targetObj.artist.image} alt={targetObj.artist.image} />
-                </div>
-            </div>
 
-            <div className="additional-content">
-                <h2 className="fs-1200 year">{targetObj.year}</h2>
-                <p className="fs-500 lighten-mid-grey fw-bold description">{targetObj.description}</p>
-                <a href={targetObj.source}>Go to source
-                    <span className="sr-only">Wikipedia documents</span>
-                </a>
-            </div>
-        </div>
+                <div className="additional-content">
+                    <h2 className="fs-1200 year">{targetObj.year}</h2>
+                    <p className="fs-500 lighten-mid-grey fw-bold description">{targetObj.description}</p>
+                    <a href={targetObj.source}
+                        className="fs-100 uppercase lighten-mid-grey btn-source letter-spacing"
+                        target="_blank"
+                        rel="noreferrer">
+                        Go to source
+                        <span className="sr-only">Wikipedia documents</span>
+                    </a>
+                </div>
+            </main>
+
+            <footer className="footer-slide">
+                <div className="">
+                    <h2 className="fs-900 fw-bold">{targetObj.name}</h2>
+                    <h3 className="fs-600 image-heading">{targetObj.artist.name}</h3>
+                </div>
+                <div className="controls">
+                    <Link to={`/slides/:${targetObj.id}`} className="btn-back" onClick={handleBack}>
+                        <span className="sr-only">select previous data</span>
+                        <img src={Back} alt="" />
+                    </Link>
+                    <Link to={`/slides/:${targetObj.id}`} className="btn-next" onClick={handleNext}>
+                        <span className="sr-only">select previous data</span>
+                        <img src={Next} alt="" />
+                    </Link>
+                </div>
+            </footer>
+        </>
     )
 }
 export default Slides
