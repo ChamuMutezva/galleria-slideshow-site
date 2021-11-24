@@ -60,7 +60,7 @@ const Slides = () => {
 
                 <div className="image-content">
                     <div className="main-image relative">
-                        <div className="view-image absolute-top">
+                        <div className="view-image absolute-top-bottom">
                             <button className="btn btn-image">
                                 <img src="../assets/shared/icon-view-image.svg" alt="" />
                                 <span>View image</span>
@@ -85,13 +85,15 @@ const Slides = () => {
                 <div className="additional-content">
                     <h2 className="fs-1200 year">{targetObj.year}</h2>
                     <p className="fs-500 lighten-mid-grey fw-bold description">{targetObj.description}</p>
-                    <a href={targetObj.source}
-                        className="fs-100 uppercase lighten-mid-grey btn-source letter-spacing"
-                        target="_blank"
-                        rel="noreferrer">
-                        Go to source
-                        <span className="sr-only">Wikipedia documents</span>
-                    </a>
+                    <div className="container-btn-source">
+                        <a href={targetObj.source}
+                            className="fs-100 uppercase lighten-mid-grey btn-source letter-spacing"
+                            target="_blank"
+                            rel="noreferrer">
+                            Go to source
+                            <span className="sr-only">Wikipedia documents</span>
+                        </a>
+                    </div>
                 </div>
             </main>
 

@@ -22,10 +22,22 @@
         padding-inline-start: 1.5rem;
         // margin-block-end: 1.5rem;
     }
+
+    @include utils.mQ(38.75rem) {
+        flex: 1 1 60%;
+
+        .absolute {
+            bottom: auto;
+            left: 50%;
+            top: 0;
+            padding-block-end: base.$spacer-4;
+        }
+    }
 }
 
 .image-heading {
     color: lighten(base.$clr-med-grey, 46%);
+    margin-top: base.$spacer-1;
 }
 
 .author-image {
@@ -37,6 +49,18 @@
     img {
         transform: scale(0.5);
     }
+
+    @include utils.mQ(38.75rem) {
+        margin-block-start: 0;
+        flex: 1 1 40%;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        img {
+            transform: scale(1);
+        }
+    }
 }
 
 .year {
@@ -44,21 +68,48 @@
     position: absolute;
     top: -4.5rem;
     left: 28%;
+    @include utils.mQ(38.75rem) {
+        left: 0;
+     }
 }
 
 .description {
     line-height: 2;
-    top: 1.8rem;
+    top: base.$spacer-2;
     position: relative;
-    margin-block-end: 4rem;
+    margin-block-end: base.$spacer-5;
+
+    @include utils.mQ(38.75rem) {
+        top: base.$spacer-5;
+        margin-block-end: base.$spacer-6;
+        width: 68%;
+        margin-inline: auto;
+    }
 }
 
 .additional-content {
     position: relative;
+
+    @include utils.mQ(38.75rem) {
+        margin-block-start: base.$spacer-5;
+    }
 }
 
 .btn-source {
     letter-spacing: 1.93px;
+}
+
+.image-content {
+    @include utils.mQ(38.75rem) {
+        display: flex;
+    }
+}
+
+.container-btn-source {
+    @include utils.mQ(38.75rem) {
+        width: 68%;
+        margin-inline: auto;
+    }
 }
 
 .footer {

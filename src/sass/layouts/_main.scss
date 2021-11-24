@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../base";
 @use "../utils";
 
@@ -23,12 +24,12 @@
 }
 .main {
 	max-width: 1360px;
-	margin-block-start: base.$spacer-4;
+	margin-block-start: math.div(base.$spacer-1, 2);
 	margin-block-end: base.$spacer-1;
 	margin-inline: auto;
 
 	@include utils.mQ(38.75rem) {
-		margin-block-start: 4.25rem;
+		//margin-block-start: 4.25rem;
 	 }
 
 }

@@ -94,6 +94,11 @@
 
 .fs-900 {
     font-size: variables.$fs-900;
+
+    @include utils.mQ(38.75rem) {
+       // font-size: variables.$fs-1100;
+        line-height: 1.25;
+    }
 }
 
 .fs-1000 {
@@ -106,6 +111,10 @@
 
 .fs-1200 {
     font-size: variables.$fs-1200;
+
+    @include utils.mQ(38.75rem) {
+        font-size: variables.$fs-1300;
+    }
 }
 
 .fs-1300 {
@@ -132,7 +141,7 @@
 }
 
 .lighten-mid-grey {
-    color: lighten(variables.$clr-med-grey, 46%); 
+    color: lighten(variables.$clr-med-grey, 46%);
 }
 
 .uppercase {
@@ -146,15 +155,20 @@
 .absolute {
     position: absolute;
     z-index: 1;
-    bottom: 1.5rem;
-    left: 1.5rem;
+    bottom: variables.$spacer-1;
+    left: variables.$spacer-1;
 }
 
-.absolute-top {
+.absolute-top-bottom {
     position: absolute;
-    z-index: 1;
-    top: 1.5rem;
-    left: 1.5rem; 
+    z-index: 2;
+    top: variables.$spacer-1;
+    left: variables.$spacer-1;
+
+    @include utils.mQ(38.75rem) {
+        top: auto;
+        bottom: variables.$spacer-1;
+    }
 }
 
 .container {
