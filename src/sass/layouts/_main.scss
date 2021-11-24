@@ -12,7 +12,7 @@
 		height: .125rem;
 		background-color: base.$clr-lt-grey;
 		left: 0;
-		top: 4.9375rem;
+		top: base.$spacer-5;
 	}
 
 	@include utils.mQ(38.75rem) {

@@ -3,7 +3,7 @@ import logo from "../assets/shared/logo.svg"
 
 const Header = () => {
   return (
-    <header className="flex">
+    <header className="container flex">
       <Link to="/" className="image-holder">
         <img className="logo" src={logo} alt="" aria-hidden="true" />
       </Link>

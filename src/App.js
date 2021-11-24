@@ -7,7 +7,7 @@ import { DataProvider } from "./context/DataContext"
 
 function App() {
   return (
-    <div className="App container bg-white">
+    <div className="App bg-white">
       <DataProvider>
 
         <BrowserRouter>

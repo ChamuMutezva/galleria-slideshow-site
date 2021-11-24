@@ -5,7 +5,7 @@ export const DataContext = createContext()
 
 export const DataProvider = (props) => {
     const [data, setData] = useState([])
-
+    
     //get data from json api
     const getData = async () => {
         await axios.get('data.json', {
@@ -26,17 +26,18 @@ export const DataProvider = (props) => {
 
     }
 
-    const getOne = (id) => {
-        return data.find(target => target.id === id)       
+    const getOne = (id) => {       
+        return data.find(target => target.id === id)
     }
 
     useEffect(() => {
-        getData()      
-    }, [])
+        getData()        
+    }, []) 
+    
 
- 
-
-    return <DataContext.Provider value={{ data, getOne }}>
-        {props.children}
-    </DataContext.Provider>
+    return (
+        <DataContext.Provider value={{ data, getOne }}>
+            {props.children}
+        </DataContext.Provider>
+    )
 }

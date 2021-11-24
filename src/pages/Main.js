@@ -10,7 +10,7 @@ const Main = () => {
     console.log(data)
   
     return (
-        <main className="main">
+        <main className="main container">
             <h1 className="sr-only">galleria photo center - home of the most acclaimed pictures</h1>
             <ResponsiveMasonry columnsCountBreakPoints={{310: 1, 620: 2, 930: 3, 1100: 4}} >
                 <Masonry gutter={`1.5rem`}>
