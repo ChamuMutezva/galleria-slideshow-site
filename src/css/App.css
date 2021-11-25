@@ -372,7 +372,7 @@ select {
   margin-inline: auto;
 }
 .overlay {
-  /* display: none; */
+  display: none;
   background-color: black;
   min-height: 137vh;
   position: fixed;
