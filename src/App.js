@@ -34,6 +34,8 @@ function App() {
         </BrowserRouter>
 
       </DataProvider>
+
+      
     </div >
   );
 }

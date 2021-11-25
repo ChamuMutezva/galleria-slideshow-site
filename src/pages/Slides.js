@@ -52,7 +52,7 @@ const Slides = () => {
 
 
     return (
-        <>
+        <div className="slide">
             <main className="main container main-slide">
                 <h1 className="sr-only">
                     Additional information for {targetObj.name} the works of {targetObj.artist.name}
@@ -73,8 +73,8 @@ const Slides = () => {
                                 alt="" />
                         </picture>
                         <div className="absolute">
-                            <h2 className="fs-900 fw-bold">{targetObj.name}</h2>
-                            <h3 className="fs-600 image-heading">{targetObj.artist.name}</h3>
+                            <h2 className="fs-900 fw-bold slide-image-name">{targetObj.name}</h2>
+                            <h3 className="fs-600 slide-artist-name">{targetObj.artist.name}</h3>
                         </div>
                     </div>
                     <div className="author-image">
@@ -100,8 +100,8 @@ const Slides = () => {
             <footer className="footer">
                 <div className="footer-slide container">
                     <div className="footer-heading">
-                        <h2 className="fs-900 fw-bold">{targetObj.name}</h2>
-                        <h3 className="fs-600 image-heading">{targetObj.artist.name}</h3>
+                        <h2 className="fs-900 fw-bold slide-image-name-footer">{targetObj.name}</h2>
+                        <h3 className="fs-600 slide-artist-name-footer">{targetObj.artist.name}</h3>
                     </div>
                     <div className="controls">
                         <Link to={`/slides/:${currentID}`}
@@ -120,7 +120,8 @@ const Slides = () => {
                     </div>
                 </div>
             </footer>
-        </>
+            <div className="overlay"></div>
+        </div>
     )
 }
 export default Slides

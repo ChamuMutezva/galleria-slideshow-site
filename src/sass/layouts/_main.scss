@@ -33,3 +33,14 @@
 	 }
 
 }
+
+.overlay {
+	/* display: none; */
+	background-color: darken(base.$clr-lt-grey, 90%);
+	min-height: 137vh;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	top: 0;	
+	opacity: .3;
+}

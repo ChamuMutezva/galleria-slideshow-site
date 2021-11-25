@@ -24,20 +24,25 @@
     }
 
     @include utils.mQ(38.75rem) {
-        flex: 1 1 60%;
+        flex: 1 1 70%;
 
         .absolute {
             bottom: auto;
             left: 50%;
             top: 0;
+            padding-block-start: 0;
             padding-block-end: base.$spacer-4;
         }
     }
 }
 
-.image-heading {
+.slide-artist-name, .slide-artist-name-footer {
     color: lighten(base.$clr-med-grey, 46%);
     margin-top: base.$spacer-1;
+}
+
+.slide-image-name {
+    font-size: base.$fs-1100;
 }
 
 .author-image {
@@ -52,7 +57,7 @@
 
     @include utils.mQ(38.75rem) {
         margin-block-start: 0;
-        flex: 1 1 40%;
+        flex: 1 1 30%;
         align-items: center;
         justify-content: center;
         z-index: 1;
@@ -61,6 +66,10 @@
             transform: scale(1);
         }
     }
+
+    @include utils.mQ(67.5rem) {
+        align-items: flex-end;
+     }
 }
 
 .year {
@@ -70,6 +79,7 @@
     left: 28%;
     @include utils.mQ(38.75rem) {
         left: 0;
+        font-size: base.$fs-1300;
      }
 }
 
@@ -93,6 +103,10 @@
     @include utils.mQ(38.75rem) {
         margin-block-start: base.$spacer-5;
     }
+
+    @include utils.mQ(67.5rem) {
+        flex: 1 1 50%;
+     }
 }
 
 .btn-source {
@@ -103,12 +117,21 @@
     @include utils.mQ(38.75rem) {
         display: flex;
     }
+    @include utils.mQ(67.5rem) {
+        flex: 1 1 50%;
+     }
 }
 
 .container-btn-source {
     @include utils.mQ(38.75rem) {
         width: 68%;
         margin-inline: auto;
+    }
+}
+
+.main-slide {
+    @include utils.mQ(67.5rem) {
+       display: flex;
     }
 }
 

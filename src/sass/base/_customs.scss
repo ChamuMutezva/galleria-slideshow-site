@@ -111,10 +111,6 @@
 
 .fs-1200 {
     font-size: variables.$fs-1200;
-
-    @include utils.mQ(38.75rem) {
-        font-size: variables.$fs-1300;
-    }
 }
 
 .fs-1300 {
