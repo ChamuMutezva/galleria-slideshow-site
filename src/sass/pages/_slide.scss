@@ -36,13 +36,16 @@
     }
 }
 
-.slide-artist-name, .slide-artist-name-footer {
+.slide-artist-name,
+.slide-artist-name-footer {
     color: lighten(base.$clr-med-grey, 46%);
     margin-top: base.$spacer-1;
 }
 
 .slide-image-name {
-    font-size: base.$fs-1100;
+    @include utils.mQ(38.75rem) {
+        font-size: base.$fs-1100;
+    }
 }
 
 .author-image {
@@ -69,7 +72,7 @@
 
     @include utils.mQ(67.5rem) {
         align-items: flex-end;
-     }
+    }
 }
 
 .year {
@@ -77,10 +80,11 @@
     position: absolute;
     top: -4.5rem;
     left: 28%;
+
     @include utils.mQ(38.75rem) {
         left: 0;
         font-size: base.$fs-1300;
-     }
+    }
 }
 
 .description {
@@ -106,7 +110,7 @@
 
     @include utils.mQ(67.5rem) {
         flex: 1 1 50%;
-     }
+    }
 }
 
 .btn-source {
@@ -117,9 +121,10 @@
     @include utils.mQ(38.75rem) {
         display: flex;
     }
+
     @include utils.mQ(67.5rem) {
         flex: 1 1 50%;
-     }
+    }
 }
 
 .container-btn-source {
@@ -131,8 +136,23 @@
 
 .main-slide {
     @include utils.mQ(67.5rem) {
-       display: flex;
+        display: flex;
     }
+}
+
+.overlay-container {
+	position: relative;
+}
+
+.btn-close {
+	position: absolute;
+	right: 0;
+	top: -3rem;
+	background-color: inherit;
+	color: white;
+	border: none;
+
+    @include utils.hoverFocus();
 }
 
 .footer {

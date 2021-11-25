@@ -10,6 +10,7 @@ const Slides = () => {
     const { getOne } = useContext(DataContext)
     const [currentID, setCurrentID] = useState(parseInt(params.id.substring(1), 10))
     const [targetObj, setTargetObj] = useState(getOne(currentID))
+    const [showImage, setShowImage] = useState(false)
 
     useEffect(() => {
 
@@ -50,6 +51,11 @@ const Slides = () => {
 
     }
 
+    function handleShowImage() {
+        setShowImage(!showImage)
+        console.log(showImage)
+    }
+
 
     return (
         <div className="slide">
@@ -61,7 +67,7 @@ const Slides = () => {
                 <div className="image-content">
                     <div className="main-image relative">
                         <div className="view-image absolute-top-bottom">
-                            <button className="btn btn-image">
+                            <button className="btn btn-image" onClick={handleShowImage}>
                                 <img src="../assets/shared/icon-view-image.svg" alt="" />
                                 <span>View image</span>
                             </button>
@@ -120,7 +126,12 @@ const Slides = () => {
                     </div>
                 </div>
             </footer>
-            <div className="overlay"></div>
+            <div className={`overlay ${showImage ? "overlay-show" : ""}`}>
+                <div className="overlay-container">
+                    <button className="btn-close" onClick={handleShowImage}>Close</button>
+                    <img src={targetObj.images.gallery} alt="" />
+                </div>
+            </div>
         </div>
     )
 }
