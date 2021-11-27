@@ -1,75 +1,21 @@
-import { useContext, useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { useContext} from "react"
+import { useParams, Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext"
 import Next from "../assets/shared/icon-next-button.svg"
 import Back from "../assets/shared/icon-back-button.svg"
 
 const Slides = () => {
-   
-    const navigate = useNavigate()  
-    const { getOne, startSlide } = useContext(DataContext)    
-    const [currentID, setCurrentID] = useState(parseInt(1))
-    const [targetObj, setTargetObj] = useState(getOne(currentID))
-    const [showImage, setShowImage] = useState(false)
-    const [goBack, setGoBack] = useState(parseInt(targetObj.id) <= 1 ? false : true)
-    const [goForward, setGoForward] = useState(parseInt(targetObj.id) === 15 ? false : true)
 
 
-    useEffect(() => {
-        if (startSlide) {
+    const { getOne } = useContext(DataContext)
+    const {id} = useParams();
+    const showImage = '';
+    const handleShowImage = () => null;
 
-            const timer = setInterval(() => {
-                if (currentID === 15) {
-                    setCurrentID(1)
-                } else (
-                    setCurrentID(prevID => prevID + 1)
-                )               
-              // navigate(`slides/:${currentID}`)
-               
-              //loc.pathname = `slides/:${currentID}`
-               setTargetObj(getOne(currentID))   
-               console.log(targetObj)         
-               
-            }, 5000)
-            return () => clearInterval(timer)
-        }
+    const targetObj = getOne(id);
+    const nextSlide = targetObj.id >= 15 ? null : targetObj.id + 1;
+    const previousSlide = targetObj.id > 1 ?  targetObj.id - 1 : null;
 
-    }, [currentID, startSlide, navigate, getOne, targetObj])
-
-
-    if (targetObj === undefined) {
-        return <main><h2>Nothing to show here</h2></main>
-    }
-
-    function handleBack(evt) {
-        setGoForward(true)
-
-        if (currentID <= 1) {
-            setGoBack(false)
-        } else {
-            setCurrentID(prevID => prevID - 1)
-            setTargetObj(getOne(currentID))
-            setGoBack(true)
-        }
-
-
-    }
-
-    function handleNext() {
-        setGoBack(true)
-        if (currentID >= 15) {
-            setGoForward(false)
-        } else {
-            setGoForward(true)
-            setCurrentID(prevID => prevID + 1)
-            setTargetObj(getOne(currentID))
-        }
-
-    }
-
-    function handleShowImage() {
-        setShowImage(!showImage)
-    }
 
     return (
         <div className="slide">
@@ -124,17 +70,18 @@ const Slides = () => {
                         <h3 className="fs-600 slide-artist-name-footer">{targetObj.artist.name}</h3>
                     </div>
                     <div className="controls">
-                        <Link to={`/slides/:${currentID}`}
-                            className={`btn-back ${goBack ? "" : "btn-disabled"}`}
-                            onClick={handleBack}
+                        <Link to={`/slides/${previousSlide}`}
+                            className={`btn-back ${previousSlide ? "" : "btn-disabled"}`}
+                        
                         >
                             <span className="sr-only">select previous data</span>
                             <img src={Back} alt="" />
                         </Link>
 
-                        <Link to={`/slides/:${currentID}`}
-                            className={`btn-next ${goForward ? "" : "btn-disabled"}`}
-                            onClick={handleNext}>
+                        <Link to={`/slides/${nextSlide}`}
+                            className={`btn-next ${nextSlide ? "" : "btn-disabled"}`}
+                       >
+
                             <span className="sr-only">select previous data</span>
                             <img src={Next} alt="" />
                         </Link>

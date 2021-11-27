@@ -27,8 +27,8 @@ export const DataProvider = (props) => {
 
     }
 
-    const getOne = (id) => {       
-        return data.find(target => target.id === id)
+    const getOne = (id) => {    
+      return data.find(target => target.id === parseInt(id, 10))
     }
 
     const slide = () => setStartSlide(!startSlide)
