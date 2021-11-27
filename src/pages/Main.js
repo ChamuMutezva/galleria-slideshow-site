@@ -6,8 +6,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 const Main = () => {
 
     const { data } = useContext(DataContext)
-   
-  //  console.log(data)
+  
   
     return (
         <main className="main container">

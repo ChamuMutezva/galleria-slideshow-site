@@ -8,8 +8,7 @@ const Header = () => {
   const { slide, startSlide } = useContext(DataContext)
  
   function handleStart() {   
-    slide()
-      console.log(startSlide)
+    slide()     
   }
 
   return (

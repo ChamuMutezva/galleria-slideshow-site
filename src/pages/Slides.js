@@ -1,21 +1,43 @@
-import { useContext} from "react"
-import { useParams, Link } from "react-router-dom";
+import { useContext, useState, useEffect } from "react"
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext"
 import Next from "../assets/shared/icon-next-button.svg"
 import Back from "../assets/shared/icon-back-button.svg"
 
 const Slides = () => {
 
+    const { getOne, startSlide } = useContext(DataContext)
+    const [showImage, setShowImage] = useState(false)
 
-    const { getOne } = useContext(DataContext)
-    const {id} = useParams();
-    const showImage = '';
-    const handleShowImage = () => null;
+    const { id } = useParams()
+    const navigate = useNavigate()
+
+    function handleShowImage() {
+        setShowImage(!showImage)
+    }
 
     const targetObj = getOne(id);
-    const nextSlide = targetObj.id >= 15 ? null : targetObj.id + 1;
-    const previousSlide = targetObj.id > 1 ?  targetObj.id - 1 : null;
+    const nextSlide = targetObj.id >= 15 ? 1 : targetObj.id + 1;
+    const previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;
 
+    /* ---------------SLIDE PRESENTATION--------------------- */
+    useEffect(() => {
+        if (startSlide) {
+            console.log("navigate started")
+           
+            const timer = setInterval(() => {
+                if (nextSlide <= 15) {
+                    navigate(`/slides/${nextSlide}`)
+                }
+
+            }, 5000)
+            return () => clearInterval(timer)
+        } else {
+            console.log("slide has stopped")
+        }
+
+    }, [startSlide, nextSlide, navigate])
+    /* ---------------END SLIDE PRESENTATION--------------------- */
 
     return (
         <div className="slide">
@@ -72,7 +94,7 @@ const Slides = () => {
                     <div className="controls">
                         <Link to={`/slides/${previousSlide}`}
                             className={`btn-back ${previousSlide ? "" : "btn-disabled"}`}
-                        
+
                         >
                             <span className="sr-only">select previous data</span>
                             <img src={Back} alt="" />
@@ -80,7 +102,7 @@ const Slides = () => {
 
                         <Link to={`/slides/${nextSlide}`}
                             className={`btn-next ${nextSlide ? "" : "btn-disabled"}`}
-                       >
+                        >
 
                             <span className="sr-only">select previous data</span>
                             <img src={Next} alt="" />
