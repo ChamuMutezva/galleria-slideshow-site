@@ -7,7 +7,7 @@ const Main = () => {
 
     const { data } = useContext(DataContext)
    
-    console.log(data)
+  //  console.log(data)
   
     return (
         <main className="main container">

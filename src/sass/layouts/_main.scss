@@ -40,10 +40,14 @@
     top: 0;
     opacity: .95;
     padding: base.$spacer-1;
-    min-height: 100vh;
+   // min-height: 100vh;
 
     @include utils.mQ(38.75rem) {
         padding: base.$spacer-1 base.$spacer-5;
+    }
+
+	@include utils.mQ(67.5rem) {
+        padding: base.$spacer-5;
     }
 }
 
