@@ -15,7 +15,7 @@ const Main = () => {
             <ResponsiveMasonry columnsCountBreakPoints={{310: 1, 620: 2, 930: 3, 1100: 4}} >
                 <Masonry gutter={`1.5rem`}>
                     {data.map(elm => {
-                        return <Link to={`/slides/:${elm.id}`} className="anchor-color link-card flex-2" key={elm.name} >
+                        return <Link to={`/slides/${elm.id}`} className="anchor-color link-card flex-2" key={elm.name} >
                             <figure className="relative">
                                 <img className="anchor-img"
                                     src={elm.images.thumbnail}                                  

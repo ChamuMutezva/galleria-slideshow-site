@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext} from "react"
 import { useParams, Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext"
 import Next from "../assets/shared/icon-next-button.svg"
@@ -6,56 +6,14 @@ import Back from "../assets/shared/icon-back-button.svg"
 
 const Slides = () => {
 
-    let params = useParams();
     const { getOne } = useContext(DataContext)
-    const [currentID, setCurrentID] = useState(parseInt(params.id.substring(1), 10))
-    const [targetObj, setTargetObj] = useState(getOne(currentID))
-    const [showImage, setShowImage] = useState(false)
+    const {id} = useParams();
+    const showImage = '';
+    const handleShowImage = () => null;
 
-    useEffect(() => {
-
-    }, [targetObj, currentID])
-
-    const [goBack, setGoBack] = useState(parseInt(targetObj.id) <= 1 ? false : true)
-    const [goForward, setGoForward] = useState(parseInt(targetObj.id) === 15 ? false : true)
-
-    if (targetObj === undefined) {
-        return <main><h2>Nothing to show here</h2></main>
-    }
-
-    function handleBack(evt) {
-        console.log(goBack)
-        setGoForward(true)
-        if (currentID <= 1) {
-            setGoBack(false)
-
-        } else {
-            setCurrentID(currentID - 1)
-            setTargetObj(getOne(currentID))
-            setGoBack(true)
-        }
-
-    }
-
-    function handleNext() {
-        console.log(goForward)
-        setGoBack(true)
-        if (currentID >= 15) {
-            setGoForward(false)
-
-        } else {
-            setGoForward(true)
-            setCurrentID(currentID + 1)
-            setTargetObj(getOne(currentID))
-        }
-
-    }
-
-    function handleShowImage() {
-        setShowImage(!showImage)
-        console.log(showImage)
-    }
-
+    const targetObj = getOne(id);
+    const nextSlide = targetObj.id >= 15 ? null : targetObj.id + 1;
+    const previousSlide = targetObj.id > 1 ?  targetObj.id - 1 : null;
 
     return (
         <div className="slide">
@@ -110,16 +68,16 @@ const Slides = () => {
                         <h3 className="fs-600 slide-artist-name-footer">{targetObj.artist.name}</h3>
                     </div>
                     <div className="controls">
-                        <Link to={`/slides/:${currentID}`}
-                            className={`btn-back ${goBack ? "" : "btn-disabled"}`}
-                            onClick={handleBack}
+                        <Link to={`/slides/${previousSlide}`}
+                            className={`btn-back ${previousSlide ? "" : "btn-disabled"}`}
+                        
                         >
                             <span className="sr-only">select previous data</span>
                             <img src={Back} alt="" />
                         </Link>
-                        <Link to={`/slides/:${currentID}`}
-                            className={`btn-next ${goForward ? "" : "btn-disabled"}`}
-                            onClick={handleNext}>
+                        <Link to={`/slides/${nextSlide}`}
+                            className={`btn-next ${nextSlide ? "" : "btn-disabled"}`}
+                       >
                             <span className="sr-only">select previous data</span>
                             <img src={Next} alt="" />
                         </Link>
