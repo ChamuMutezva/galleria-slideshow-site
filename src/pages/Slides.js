@@ -6,6 +6,7 @@ import Back from "../assets/shared/icon-back-button.svg"
 
 const Slides = () => {
 
+
     const { getOne } = useContext(DataContext)
     const {id} = useParams();
     const showImage = '';
@@ -14,6 +15,7 @@ const Slides = () => {
     const targetObj = getOne(id);
     const nextSlide = targetObj.id >= 15 ? null : targetObj.id + 1;
     const previousSlide = targetObj.id > 1 ?  targetObj.id - 1 : null;
+
 
     return (
         <div className="slide">
@@ -75,9 +77,11 @@ const Slides = () => {
                             <span className="sr-only">select previous data</span>
                             <img src={Back} alt="" />
                         </Link>
+
                         <Link to={`/slides/${nextSlide}`}
                             className={`btn-next ${nextSlide ? "" : "btn-disabled"}`}
                        >
+
                             <span className="sr-only">select previous data</span>
                             <img src={Next} alt="" />
                         </Link>

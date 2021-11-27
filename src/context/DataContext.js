@@ -5,6 +5,7 @@ export const DataContext = createContext()
 
 export const DataProvider = (props) => {
     const [data, setData] = useState([])
+    const [startSlide, setStartSlide] = useState(false)
     
     //get data from json api
     const getData = async () => {
@@ -30,13 +31,15 @@ export const DataProvider = (props) => {
       return data.find(target => target.id === parseInt(id, 10))
     }
 
+    const slide = () => setStartSlide(!startSlide)
+
     useEffect(() => {
         getData()        
     }, []) 
     
 
     return (
-        <DataContext.Provider value={{ data, getOne }}>
+        <DataContext.Provider value={{startSlide, data, getOne, slide }}>
             {props.children}
         </DataContext.Provider>
     )
