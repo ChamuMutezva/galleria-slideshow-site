@@ -1,19 +1,34 @@
 import { useContext, useState, useEffect } from "react"
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { DataContext } from "../context/DataContext"
 import Next from "../assets/shared/icon-next-button.svg"
 import Back from "../assets/shared/icon-back-button.svg"
 
 const Slides = () => {
 
-    const { getOne, startSlide } = useContext(DataContext)
-    const [showImage, setShowImage] = useState(false)
-
+    const { getOne, startSlide, slide, data } = useContext(DataContext)
+    const dataLength = data.length
+    const [showImage, setShowImage] = useState(false) 
+   
+   
     const { id } = useParams()
     const navigate = useNavigate()
+    const [progressPercent, setProgressPercent] = useState(`${Math.round(id / dataLength  * 100)}`)
+    console.log(progressPercent)
 
     function handleShowImage() {
+        if (startSlide) {
+            slide()
+        }       
         setShowImage(!showImage)
+    }
+
+    function handleNextProgressBar() {
+        setProgressPercent(Math.round(nextSlide / dataLength  * 100)) 
+    }
+
+    function handleBackProgressBar() {
+        setProgressPercent(Math.round(previousSlide / dataLength  * 100)) 
     }
 
     const targetObj = getOne(id);
@@ -24,16 +39,13 @@ const Slides = () => {
     useEffect(() => {
         if (startSlide) {
             console.log("navigate started")
-            
             const timer = setInterval(() => {
                 navigate(`/slides/${nextSlide}`)
+                setProgressPercent(Math.round(nextSlide / dataLength  * 100))              
             }, 5000)
             return () => clearInterval(timer)
-        } else {
-            console.log("slide has stopped")
         }
-
-    }, [startSlide, nextSlide, navigate])
+    }, [startSlide, nextSlide, navigate, dataLength , progressPercent])
     /* ---------------END SLIDE PRESENTATION--------------------- */
 
     return (
@@ -84,22 +96,25 @@ const Slides = () => {
 
             {/******************------------- FOOTER SECTION------------ **********************/}
             <footer className="footer">
+                <div className="progressive-bar">
+                    <span className="progress" style={{width: `${progressPercent}%` }}></span>
+                </div>
                 <div className="footer-slide container">
                     <div className="footer-heading">
                         <h2 className="fs-900 fw-bold slide-image-name-footer">{targetObj.name}</h2>
                         <h3 className="fs-600 slide-artist-name-footer">{targetObj.artist.name}</h3>
                     </div>
                     <div className="controls">
-                        <Link to={`/slides/${previousSlide}`}
-                            className={`btn-back ${previousSlide ? "" : "btn-disabled"}`}
+                        <Link to={`/slides/${previousSlide}`} onClick={handleBackProgressBar}
+                            className={`btn btn-back ${previousSlide ? "" : "btn-disabled"}`}
 
                         >
                             <span className="sr-only">select previous data</span>
                             <img src={Back} alt="" />
                         </Link>
 
-                        <Link to={`/slides/${nextSlide}`}
-                            className={`btn-next ${nextSlide ? "" : "btn-disabled"}`}
+                        <Link to={`/slides/${nextSlide}`} onClick={handleNextProgressBar}
+                            className={`btn btn-next ${nextSlide ? "" : "btn-disabled"}`}
                         >
 
                             <span className="sr-only">select previous data</span>

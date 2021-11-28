@@ -155,18 +155,25 @@
     @include utils.hoverFocus();
 }
 
+
 .footer {
     position: relative;
+}
 
-    &::before {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: .125rem;
-        background-color: base.$clr-lt-grey;
-        left: 0;
-        top: -(base.$spacer-2);
-    }
+.progressive-bar {
+	position: relative;
+    content: "";
+    width: 100%;
+    height: .125rem;
+    background-color: base.$clr-lt-grey;
+    left: 0;
+    top: base.$spacer-2;
+}
+
+.progress {
+	height: 100%;
+    background-color: base.$clr-dark;
+    display: block;
 }
 
 .footer-slide {

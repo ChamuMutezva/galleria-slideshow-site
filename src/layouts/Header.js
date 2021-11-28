@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="container flex">
-      <Link to="/" className="image-holder">
+      <Link to="/" className="btn image-holder">
         <img className="logo" src={logo} alt="" aria-hidden="true" />
       </Link>
       <button onClick={handleStart}
