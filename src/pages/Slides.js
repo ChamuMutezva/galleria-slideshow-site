@@ -24,12 +24,9 @@ const Slides = () => {
     useEffect(() => {
         if (startSlide) {
             console.log("navigate started")
-           
+            
             const timer = setInterval(() => {
-                if (nextSlide <= 15) {
-                    navigate(`/slides/${nextSlide}`)
-                }
-
+                navigate(`/slides/${nextSlide}`)
             }, 5000)
             return () => clearInterval(timer)
         } else {
@@ -85,6 +82,7 @@ const Slides = () => {
                 </div>
             </main>
 
+            {/******************------------- FOOTER SECTION------------ **********************/}
             <footer className="footer">
                 <div className="footer-slide container">
                     <div className="footer-heading">
@@ -110,12 +108,17 @@ const Slides = () => {
                     </div>
                 </div>
             </footer>
+            {/******************------------- FOOTER SECTION END------------ **********************/}
+
+            {/******************------------- OVERLAY SECTION------------ **********************/}
             <div className={`overlay ${showImage ? "overlay-show" : ""}`}>
                 <div className="overlay-container">
                     <button className="btn-close" onClick={handleShowImage}>Close</button>
                     <img src={targetObj.images.gallery} alt="" />
                 </div>
             </div>
+            {/******************------------- OVERLAY SECTION END------------ **********************/}
+
         </div>
     )
 }

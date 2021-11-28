@@ -1,14 +1,20 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import logo from "../assets/shared/logo.svg"
 import { DataContext } from "../context/DataContext"
 
 const Header = () => {
- 
+
+  const navigate = useNavigate()
+  const loc = useLocation()
+  console.log(loc)
   const { slide, startSlide } = useContext(DataContext)
- 
-  function handleStart() {   
-    slide()     
+
+  function handleStart() {
+    if (loc.pathname === "/") {
+      navigate(`/slides/1`)
+    }
+    slide()
   }
 
   return (
@@ -18,7 +24,7 @@ const Header = () => {
       </Link>
       <button onClick={handleStart}
         className="btn uppercase fs-100 fw-bold  lighten-mid-grey letter-spacing">
-          { !startSlide ? "Start slideshow" : "Stop slideshow"}      
+        {!startSlide ? "Start slideshow" : "Stop slideshow"}
       </button>
     </header>
   )
