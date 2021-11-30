@@ -7,7 +7,7 @@ const Header = () => {
 
   const navigate = useNavigate()
   const loc = useLocation()
-  console.log(loc)
+ // console.log(loc)
   const { slide, startSlide } = useContext(DataContext)
 
   function handleStart() {
@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="container flex">
-      <Link to="/" className="btn image-holder">
+      <Link to="/" className="btn image-holder" aria-label="the gallery slideshow">
         <img className="logo" src={logo} alt="" aria-hidden="true" />
       </Link>
       <button onClick={handleStart}

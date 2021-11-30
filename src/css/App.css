@@ -370,34 +370,7 @@ select {
   margin-block-start: 0.75rem;
   margin-block-end: 1.5rem;
   margin-inline: auto;
-}
-
-.overlay {
-  display: none;
-  background-color: black;
-  min-height: 137vh;
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-  top: 0;
-  opacity: 0.95;
-  padding: 1.5rem;
-}
-@media screen and (min-width: 38.75rem) {
-  .overlay {
-    padding: 1.5rem 4.9375rem;
-  }
-}
-@media screen and (min-width: 67.5rem) {
-  .overlay {
-    padding: 4.9375rem;
-  }
-}
-
-.overlay-show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  outline: none;
 }
 
 .btn-image {
@@ -429,6 +402,10 @@ select {
     padding-block-start: 0;
     padding-block-end: 3rem;
   }
+}
+
+.slide, .image-content {
+  outline: none;
 }
 
 .slide-artist-name,
@@ -515,6 +492,11 @@ select {
 .btn-source {
   letter-spacing: 1.93px;
 }
+.btn-source:hover, .btn-source:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: 0.25em;
+}
 
 @media screen and (min-width: 38.75rem) {
   .image-content {
@@ -542,6 +524,35 @@ select {
 
 .overlay-container {
   position: relative;
+}
+
+.overlay {
+  display: none;
+  background-color: black;
+  min-height: 137vh;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  opacity: 0.95;
+  padding: 1.5rem;
+  left: 0;
+}
+@media screen and (min-width: 38.75rem) {
+  .overlay {
+    padding: 1.5rem 4.9375rem;
+  }
+}
+@media screen and (min-width: 67.5rem) {
+  .overlay {
+    padding: 4.9375rem;
+  }
+}
+
+.overlay-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-close {

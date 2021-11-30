@@ -28,31 +28,6 @@
     margin-block-start: math.div(base.$spacer-1, 2);
     margin-block-end: base.$spacer-1;
     margin-inline: auto;
+    outline: none;
 }
 
-.overlay {
-    display: none;
-    background-color: darken(base.$clr-lt-grey, 90%);
-    min-height: 137vh;
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    top: 0;
-    opacity: .95;
-    padding: base.$spacer-1;
-   // min-height: 100vh;
-
-    @include utils.mQ(38.75rem) {
-        padding: base.$spacer-1 base.$spacer-5;
-    }
-
-	@include utils.mQ(67.5rem) {
-        padding: base.$spacer-5;
-    }
-}
-
-.overlay-show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
