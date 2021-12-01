@@ -41,15 +41,15 @@ const Slides = () => {
     function handleBackProgressBar() {
         setProgressPercent(Math.round(previousSlide / dataLength * 100))
         gsap.fromTo(".slide",
-        {
-            ease: "power4",
-            duration: 2,
-            x: 300,
-        },
-        {
-            x: 0,
-        }
-    )
+            {
+                ease: "power4",
+                duration: 2,
+                x: 300,
+            },
+            {
+                x: 0,
+            }
+        )
     }
 
     const targetObj = getOne(id);
@@ -134,6 +134,8 @@ const Slides = () => {
                 </div>
                 {/******************------------- OVERLAY SECTION END------------ **********************/}
 
+
+                {/*************------ ADDITIONAL CONTENT, IMAGE AND LINK TO EXTRA CONTENT------*******/}
                 <div className="additional-content">
                     <h2 className="fs-1200 year">{targetObj.year}</h2>
                     <p className="fs-500 lighten-mid-grey fw-bold description">{targetObj.description}</p>
@@ -148,6 +150,8 @@ const Slides = () => {
                     </div>
                 </div>
             </main>
+            {/*************------END OF ADDITIONAL CONTENT, IMAGE AND LINK TO EXTRA CONTENT------*******/}
+
 
             {/******************------------- FOOTER SECTION------------ **********************/}
             <footer className="footer">
@@ -180,8 +184,6 @@ const Slides = () => {
             </footer>
 
             {/******************------------- FOOTER SECTION END------------ **********************/}
-
-
 
         </div>
     )

@@ -383,6 +383,9 @@ select {
   padding: 0.5rem 1rem;
 }
 
+.main-image {
+  z-index: 1;
+}
 .main-image .absolute {
   width: 80%;
   bottom: -1.4rem;
@@ -529,7 +532,7 @@ select {
 .overlay {
   display: none;
   background-color: black;
-  min-height: 137vh;
+  min-height: 100vh;
   position: fixed;
   z-index: 100;
   width: 100%;
