@@ -338,7 +338,7 @@ select {
 
 .link-card:hover, .link-card:focus {
   cursor: pointer;
-  opacity: 95%;
+  opacity: 0.8;
 }
 .link-card img {
   mix-blend-mode: darken;
