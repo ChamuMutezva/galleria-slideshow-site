@@ -20,8 +20,7 @@
         left: 0rem;
         background: white;
         padding-block: .5rem;
-        padding-inline-start: 1.5rem;
-        // margin-block-end: 1.5rem;
+        padding-inline-start: 1.5rem;      
     }
 
     @include utils.mQ(38.75rem) {

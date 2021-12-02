@@ -4,12 +4,14 @@ import { gsap } from "gsap"
 import { DataContext } from "../context/DataContext"
 import Next from "../assets/shared/icon-next-button.svg"
 import Back from "../assets/shared/icon-back-button.svg"
+import { createBrowserHistory } from "history"
 
 const Slides = () => {
 
     const slidePage = useRef()
     const currentSlide = useRef()
-
+    const history = createBrowserHistory()
+    console.log(history)
     const { getOne, startSlide, slide, data } = useContext(DataContext)
     const dataLength = data.length
     const [showImage, setShowImage] = useState(false)
@@ -52,7 +54,7 @@ const Slides = () => {
         )
     }
 
-    const targetObj = getOne(id);
+    const targetObj = getOne(id);    
     const nextSlide = targetObj.id >= 15 ? 1 : targetObj.id + 1;
     const previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;
 

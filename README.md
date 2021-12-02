@@ -44,6 +44,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- [react-responsive-masonry](https://www.npmjs.com/package/react-responsive-masonry) - masonry library
 - [React](https://reactjs.org/) - JS library
 - [React router](https://reactrouter.com/) - React framework
 - [Sass](https://sass-lang.com/) - For styles

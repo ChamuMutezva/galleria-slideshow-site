@@ -1,43 +1,17 @@
 import { useContext, useRef, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { DataContext } from "../context/DataContext"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 const Main = () => {
     const mainPage = useRef()
     const cardRef = useRef()
-    const { data, startSlide, slide } = useContext(DataContext)
+    const { data, startSlide, slide } = useContext(DataContext)   
 
     useEffect(() => {
         mainPage.current.focus()
-    })
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    useEffect(() => {
-        console.log(cardRef.current)
-        gsap.fromTo(".link-card",
-
-            {
-                scrollTrigger: {
-                    trigger: ".link-card",
-                    toggleActions: "restart pause reverse none",
-                },
-                ease: "back",
-                duration: 3,
-                stagger: 0.5,
-                opacity: 0,
-                scrub: true
-            },
-            {
-                opacity: 1,
-            }
-
-        )
-
-    }, [])
+    })  
+    
 
     useEffect(() => {
         // stop the slideshow when the main page is slected
