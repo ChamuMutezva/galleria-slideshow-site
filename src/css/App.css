@@ -224,9 +224,6 @@ select {
   letter-spacing: 1.93px;
 }
 
-/* ------------------- */
-/* Utility classes     */
-/* ------------------- */
 .darken-color {
   color: #cccccc;
 }
@@ -291,14 +288,15 @@ select {
   display: grid;
 }
 
+/*
 .grid-masonry {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 0.75rem;
-  grid-template-rows: masonry;
-  grid-auto-flow: dense;
+    display: grid;    
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: .75rem;
+    grid-template-rows: masonry;   
+    grid-auto-flow: dense;
 }
-
+*/
 .anchor-color {
   color: white;
 }
@@ -340,7 +338,7 @@ select {
 
 .link-card:hover, .link-card:focus {
   cursor: pointer;
-  opacity: 80%;
+  opacity: 95%;
 }
 .link-card img {
   mix-blend-mode: darken;
@@ -404,6 +402,11 @@ select {
     top: 0;
     padding-block-start: 0;
     padding-block-end: 3rem;
+  }
+}
+@media screen and (min-width: 67.5rem) {
+  .main-image .absolute {
+    left: 60%;
   }
 }
 
@@ -477,6 +480,11 @@ select {
     margin-inline: auto;
   }
 }
+@media screen and (min-width: 67.5rem) {
+  .description {
+    width: 90%;
+  }
+}
 
 .additional-content {
   position: relative;
@@ -488,7 +496,7 @@ select {
 }
 @media screen and (min-width: 67.5rem) {
   .additional-content {
-    flex: 1 1 50%;
+    flex: 1 1 40%;
   }
 }
 
@@ -508,7 +516,7 @@ select {
 }
 @media screen and (min-width: 67.5rem) {
   .image-content {
-    flex: 1 1 50%;
+    flex: 1 1 60%;
   }
 }
 
