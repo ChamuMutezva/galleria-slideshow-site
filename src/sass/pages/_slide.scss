@@ -34,6 +34,13 @@
             padding-block-end: base.$spacer-4;
         }
     }
+
+    @include utils.mQ(67.5rem) {      
+
+        .absolute {           
+            left: 60%;           
+        }
+    }
 }
 
 .slide, .image-content {
@@ -103,6 +110,10 @@
         width: 68%;
         margin-inline: auto;
     }
+
+    @include utils.mQ(67.5rem) {
+        width: 90%;
+     }
 }
 
 .additional-content {
@@ -113,7 +124,7 @@
     }
 
     @include utils.mQ(67.5rem) {
-        flex: 1 1 50%;
+        flex: 1 1 40%;
     }
 }
 
@@ -128,7 +139,7 @@
     }
 
     @include utils.mQ(67.5rem) {
-        flex: 1 1 50%;
+        flex: 1 1 60%;
     }
 }
 
