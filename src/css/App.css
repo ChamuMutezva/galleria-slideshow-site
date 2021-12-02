@@ -377,7 +377,7 @@ select {
   gap: 1rem;
   color: white;
   background-color: #1a1a1a;
-  opacity: 80%;
+  opacity: 0.8;
   padding: 0.5rem 1rem;
 }
 
