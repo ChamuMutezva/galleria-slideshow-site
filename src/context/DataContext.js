@@ -9,7 +9,7 @@ export const DataProvider = (props) => {
     
     //get data from json api
     const getData = async () => {
-        await axios.get('data.json', {
+        await axios.get('/data.json', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -31,6 +31,10 @@ export const DataProvider = (props) => {
       return data.find(target => target.id === parseInt(id, 10))
     }
 
+    const isReady = () => {
+        return data.length > 0
+    }
+
     const slide = () => setStartSlide(!startSlide)
 
     useEffect(() => {
@@ -39,7 +43,7 @@ export const DataProvider = (props) => {
     
 
     return (
-        <DataContext.Provider value={{startSlide, data, getOne, slide }}>
+        <DataContext.Provider value={{startSlide, data, getOne, slide, isReady }}>
             {props.children}
         </DataContext.Provider>
     )

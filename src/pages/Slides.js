@@ -4,15 +4,13 @@ import { gsap } from "gsap"
 import { DataContext } from "../context/DataContext"
 import Next from "../assets/shared/icon-next-button.svg"
 import Back from "../assets/shared/icon-back-button.svg"
-import { createBrowserHistory } from "history"
 
 const Slides = () => {
 
     const slidePage = useRef()
-    const currentSlide = useRef()
-    const history = createBrowserHistory()
-    console.log(history)
-    const { getOne, startSlide, slide, data } = useContext(DataContext)
+    const currentSlide = useRef()  
+    
+    const { getOne, startSlide, slide, data, isReady } = useContext(DataContext)
     const dataLength = data.length
     const [showImage, setShowImage] = useState(false)
     const { id } = useParams()
@@ -54,14 +52,21 @@ const Slides = () => {
         )
     }
 
-    const targetObj = getOne(id);    
-    const nextSlide = targetObj.id >= 15 ? 1 : targetObj.id + 1;
-    const previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;
+    let nextSlide = null
+    let previousSlide = null
+    const targetObj = getOne(id);
+    console.log(isReady)
+    console.log(targetObj)
+    if (isReady()) {
+        nextSlide = targetObj.id >= 15 ? 1 : targetObj.id + 1;
+        previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;
+    }
+
 
 
     useEffect(() => {
-        slidePage.current.focus()
-        currentSlide.current.focus()
+         slidePage.current.focus()
+          currentSlide.current.focus()
     })
 
     /* ---------------SLIDE PRESENTATION--------------------- */
@@ -91,7 +96,8 @@ const Slides = () => {
 
 
     return (
-        <div className="slide"
+        !isReady() ? <div>Loading</div> : <div className="slide"
+
             tabIndex="-1"
             ref={slidePage}>
 

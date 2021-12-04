@@ -52,17 +52,16 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```scss
+.link-card {
+    &:hover,
+    &:focus {
+        cursor: pointer;           
+        opacity: 80%;
+        // realised that writing opacity as a percentage can cause  some unexpected results.
+        // on the deployment the opacity value was changed to 0.1. Browser used - Firefox
+        // SOLUTION: opacity: 0.8
+    }    
 }
 ```
 
@@ -114,7 +113,7 @@ To see how you can add code snippets, see below:
 ## Acknowledgments
 
 - Github - [Dan Chif](https://github.com/nadchif)
-
+He helped me with React router
 Using Reactrouter was a bit tricky - the navigation had a bug as the data and the navigation bar was not 
 in sync. Realised that some of the work that i was writing code for could actually utilize Reactrouter
 in built functionalities.

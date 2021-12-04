@@ -2,13 +2,11 @@
 @use "../utils";
 
 .link-card {
-
     &:hover,
     &:focus {
         cursor: pointer;           
         opacity: 0.8;
     }
-
     img {
         mix-blend-mode: darken;      
     }
