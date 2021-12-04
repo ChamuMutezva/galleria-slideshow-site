@@ -14,28 +14,13 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="slides/:id" element={<Slides />} >
-              <Route path="*" element={
-                <main style={{ padding: "1rem" }}>
-                  <p>There's nothing here!</p>
-                </main>
-              }>
-              </Route>
-            </Route>
-
-            <Route path="*" element={
-              <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
-              </main>
-            }>
-            </Route>
-
+            <Route path="slides/:id" element={<Slides />} />
           </Routes>
         </BrowserRouter>
 
       </DataProvider>
 
-      
+
     </div >
   );
 }

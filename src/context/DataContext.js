@@ -40,10 +40,10 @@ export const DataProvider = (props) => {
     useEffect(() => {
         getData()        
     }, []) 
-    
+   
 
     return (
-        <DataContext.Provider value={{startSlide, data, getOne, slide, isReady }}>
+        <DataContext.Provider value={{startSlide, data, getOne, slide, isReady}}>
             {props.children}
         </DataContext.Provider>
     )

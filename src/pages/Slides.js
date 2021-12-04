@@ -59,15 +59,8 @@ const Slides = () => {
     console.log(targetObj)
     if (isReady()) {
         nextSlide = targetObj.id >= 15 ? 1 : targetObj.id + 1;
-        previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;
+        previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;            
     }
-
-
-
-    useEffect(() => {
-         slidePage.current.focus()
-          currentSlide.current.focus()
-    })
 
     /* ---------------SLIDE PRESENTATION--------------------- */
     useEffect(() => {
