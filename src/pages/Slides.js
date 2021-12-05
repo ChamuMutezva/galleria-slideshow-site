@@ -36,6 +36,18 @@ const Slides = () => {
                 x: 0,
             }
         )
+
+        // transition image
+        gsap.fromTo(".anchor-img",
+            {
+                opacity: 0,
+                duration: 2,
+            },
+            {
+                opacity: 1
+            }
+        )
+
     }
 
     function handleBackProgressBar() {
@@ -50,12 +62,23 @@ const Slides = () => {
                 x: 0,
             }
         )
+        // transition image
+        gsap.fromTo(".anchor-img",
+            {
+                opacity: 0,
+                duration: 2,
+            },
+            {
+                opacity: 1
+            }
+        )
+
     }
 
     let nextSlide = null
     let previousSlide = null
     const targetObj = getOne(id);
-    
+
     if (isReady()) {
         nextSlide = targetObj.id >= 15 ? 1 : targetObj.id + 1;
         previousSlide = targetObj.id > 1 ? targetObj.id - 1 : null;
@@ -78,8 +101,19 @@ const Slides = () => {
                         x: 0,
                     }
 
-
                 )
+
+                // transition image
+                gsap.fromTo(".anchor-img",
+                    {
+                        opacity: 0,
+                        duration: 2,
+                    },
+                    {
+                        opacity: 1
+                    }
+                )
+
             }, 5000)
             return () => clearInterval(timer)
         }
